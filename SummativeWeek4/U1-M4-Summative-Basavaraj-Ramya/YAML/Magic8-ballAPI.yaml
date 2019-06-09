@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: Magic 8-ball Service
+  description:  8-ball service answers random to a question.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Local dev server
+
+paths:
+  /magic:
+    post:
+      summary: answers to a Yes or No question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Magic'
+      responses:
+        '201':
+          description: A Magic object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Magic'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete magic information. Some required fields missing.
+
+
+components:
+  schemas:
+    Magic:
+      properties:
+        question:
+          type: string
+        answer:
+          type: string

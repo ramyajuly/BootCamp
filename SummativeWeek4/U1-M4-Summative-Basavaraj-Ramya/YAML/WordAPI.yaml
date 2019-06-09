@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Word Definition Service
+  description: A simple service that displays word and its definition.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Local dev server
+
+paths:
+  /word:
+    get:
+      summary: Displays random word and its definition
+      description: A simple word service that displays word and its definition.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Definition'
+
+components:
+  schemas:
+    Definition:
+      properties:
+        Word:
+          type: string
+        definition:
+          type: string

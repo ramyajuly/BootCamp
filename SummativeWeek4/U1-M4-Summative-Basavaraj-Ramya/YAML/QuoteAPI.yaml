@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Quote Service
+  description: A simple service that displays quote and its author.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Local dev server
+
+paths:
+  /quote:
+    get:
+      summary: Displays quote and its author
+      description: A simple Quote service that displays quote and its author.
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+
+components:
+  schemas:
+    Quote:
+      properties:
+        quote:
+          type: string
+        author:
+          type: string
