@@ -1,0 +1,457 @@
+openapi: 3.0.0
+info:
+  title: Service for video game store
+  description:
+    This project involves creating a simple database backed REST inventory management web service for a Video Game Store using Agile development techniques in a solo setting
+  version: 0.0.1
+servers:
+  - url: 'http://localhost:8080'
+    description: Local computer
+paths:
+  /gamestore/games:
+    post:
+      summary: Creates a new game with the given information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete game information. Some required fields missing.
+    get:
+      summary: Retrieves a list of all game.
+      responses:
+        '200':
+          description: A list of all customers and their information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+
+  /gamestore/games/{gameId}:
+    get:
+      summary: Retrieves the game with the given game id.
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: Id of the game you would like to retrieve.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+
+    put:
+      summary: Updates the entry for the game with the given game id.
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: Id of the game you would like to update.
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete game information. Some required fields missing.
+
+    delete:
+      summary: Deletes the entry for the game with the given game id.
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: Id of the game you would like to delete.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: game successfully deleted.
+
+  /gamestore/games/studio/{studio}:
+    get:
+      summary: Retrieves the game with the given studio.
+      parameters:
+        - name: studio
+          in: path
+          required: true
+          description: studio of the game you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+
+  /gamestore/games/rating/{esrbRating}:
+    get:
+      summary: Retrieves the game with the given esrb rating.
+      parameters:
+        - name: esrbRating
+          in: path
+          required: true
+          description: ersb rating of the game you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+
+  /gamestore/games/title/{title}:
+    get:
+      summary: Retrieves the game with the given title.
+      parameters:
+        - name: title
+          in: path
+          required: true
+          description: title of the game you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+
+
+  /gamestore/consoles:
+    post:
+      summary: Creates a new console with the given information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete console information. Some required fields missing.
+    get:
+      summary: Retrieves a list of all game.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+
+  /gamestore/consoles/{consoleId}:
+    get:
+      summary: Retrieves the console with the given console id.
+      parameters:
+        - name: consoleId
+          in: path
+          required: true
+          description: Id of the console you would like to retrieve.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+
+    put:
+      summary: Updates the entry for the console with the given console id.
+      parameters:
+        - name: consoleId
+          in: path
+          required: true
+          description: Id of the console you would like to update.
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete console information. Some required fields missing.
+
+    delete:
+      summary: Deletes the entry for the console with the given console id.
+      parameters:
+        - name: consoleId
+          in: path
+          required: true
+          description: Id of the console you would like to delete.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ok
+
+  /gamestore/consoles/manufacture/{manufacture}:
+    get:
+      summary: Retrieves the console with the given manufacture.
+      parameters:
+        - name: manufacture
+          in: path
+          required: true
+          description: manufacture of the console you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+
+
+  /gamestore/tshirts:
+    post:
+      summary: Creates a new tShirt with the given information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TShirt'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete tshirt information. Some required fields missing.
+
+    get:
+      summary: Retrieves a list of all tshirts.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+
+  /gamestore/tshirts/{tshirtId}:
+    get:
+      summary: Retrieves the Tshirt with the given tshirt id.
+      parameters:
+        - name: tshirtId
+          in: path
+          required: true
+          description: Id of the tshirt you would like to retrieve.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+
+    put:
+      summary: Updates the entry for the tshirt with the given tshirt id.
+      parameters:
+        - name: tshirtId
+          in: path
+          required: true
+          description: Id of the tshirt you would like to update.
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TShirt'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '400':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete tshirt information. Some required fields missing.
+
+    delete:
+      summary: Deletes the entry for the tshirt with the given tshirt id.
+      parameters:
+        - name: tshirtId
+          in: path
+          required: true
+          description: Id of the tshirt you would like to delete.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ok
+
+  /gamestore/tshirts/color/{color}:
+    get:
+      summary: Retrieves the tshirt with the given color.
+      parameters:
+        - name: color
+          in: path
+          required: true
+          description: color of the tshirt you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+
+  /gamestore/tshirts/size/{size}:
+    get:
+      summary: Retrieves the tshirt with the given size.
+      parameters:
+        - name: size
+          in: path
+          required: true
+          description: size of the tshirt you would like to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+
+components:
+  schemas:
+    Game:
+      properties:
+        gameId:
+          type: integer
+        title:
+          type: string
+        esrbRating:
+          type: string
+        description:
+          type: string
+        price:
+          type: string
+        studio:
+          type: string
+        quantity:
+          type: integer
+      required:
+        - gameId
+        - title
+        - esrbRating
+        - description
+        - price
+        - studio
+        - quantity
+
+
+    Console:
+      properties:
+        consoleId:
+          type: integer
+        model:
+          type: string
+        manufacturer:
+          type: string
+        memoryAmount:
+          type: string
+        processor:
+          type: string
+        price:
+          type: integer
+        quantity:
+          type: integer
+      required:
+        - consoleId
+        - model
+        - manufacturer
+        - price
+        - quantity
+
+    TShirt :
+      properties:
+        tshirtId:
+          type: integer
+        size:
+          type: string
+        color:
+          type: string
+        description:
+          type: string
+        price:
+          type: integer
+        quantity:
+          type: integer
+      required:
+        - tshirtId
+        - size
+        - color
+        - description
+        - price
+        - quantity
