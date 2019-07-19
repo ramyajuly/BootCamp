@@ -1,0 +1,16 @@
+
+Rsquid:EmptyStatementUsageCheckI"Remove this empty statement.(Åñ­õşÿÿÿÿ8¾Æä¿-
+asquid:S1155l">Use isEmpty() to check whether the collection is empty or not.(µ’›¦ıÿÿÿÿ8¾Æä¿-
+[
+squid:S106:"9Replace this use of System.out or System.err by a logger.(‰¾ªúÿÿÿÿ8¾Æä¿-
+[
+squid:S1068"9Replace this use of System.out or System.err by a logger.(Ú ª«ÿÿÿÿÿ8¾Æä¿-
+Rsquid:EmptyStatementUsageCheckb"Remove this empty statement.(Åñ­õşÿÿÿÿ8¾Æä¿-
+\squid:S1481M"9Remove this unused "switterPostViewModel" local variable.(òêì…şÿÿÿÿ8¾Æä¿-
+[
+squid:S106D"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ8¾Æä¿-
+ksquid:S1854M"HRemove this useless assignment to local variable "switterPostViewModel".(òêì…şÿÿÿÿ8¾Æä¿-
+Tsquid:S1481Y"=Remove this unused "switterPostViewModelList" local variable.(»ŠĞÂ
+Jsquid:S1602P",Remove useless curly braces around statement(”³•8¾Æä¿-
+isquid:S2142C"FEither re-interrupt this method or rethrow the "InterruptedException".(²ı…¦ûÿÿÿÿ8¾Æä¿-
+csquid:S1854Y"LRemove this useless assignment to local variable "switterPostViewModelList".(»ŠĞÂ

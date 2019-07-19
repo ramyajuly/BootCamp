@@ -1,0 +1,8 @@
+openapi: 3.0.0
+info:
+  title: Eureka server
+  description: web service for configuration settings to configured clients
+  version: 0.0.1
+servers:
+  - url: 'http://localhost:8761'
+    description: Local computer-Eureka service
